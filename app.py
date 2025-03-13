@@ -3,11 +3,6 @@ import numpy as np
 from PIL import Image
 from keras.models import load_model
 
-# Subir el modelo en lugar de cargarlo desde un archivo local
-model_file = st.file_uploader("Sube el modelo (.h5)", type=["h5"])
-if model_file is not None:
-    model = load_model(model_file)
-
 st.title("Reconocimiento de Imágenes")
 
 # Subir imagen en vez de cargar una fija
