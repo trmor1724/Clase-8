@@ -1,31 +1,25 @@
 import streamlit as st
+import cv2
 import numpy as np
-from PIL import Image
+#from PIL import Image
+from PIL import Image as Image, ImageOps as ImagOps
 from keras.models import load_model
 
+import platform
+
+# Muestra la versión de Python junto con detalles adicionales
+st.write("Versión de Python:", platform.python_version())
+
+model = load_model('keras_model.h5')
+data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+
 st.title("Reconocimiento de Imágenes")
-
-image = Image.open("OIG5.jpg")
-st.image(image, caption="IA")
-
-
-# Subir imagen en vez de cargar una fija
-img_file_buffer = st.file_uploader("Sube una imagen", type=["jpg", "png"])
-if img_file_buffer is not None:
-    img = Image.open(img_file_buffer)
-    st.image(img, width=350)
-
-    # Preprocesar imagen
-    img = img.resize((224, 224))
-    img_array = np.array(img)
-    normalized_image_array = (img_array.astype(np.float32) / 127.0) - 1
-    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-    data[0] = normalized_image_array
-
-    # Hacer predicción
-    if model_file is not None:
-        prediction = model.predict(data)
-        st.write("Predicción:", prediction)
+#st.write("Versión de Python:", platform.python_version())
+image = Image.open('OIG5.jpg')
+st.image(image, width=350)
+with st.sidebar:
+    st.subheader("Usando un modelo entrenado en teachable Machine puedes Usarlo en esta app para identificar")
+img_file_buffer = st.camera_input("Toma una Foto")
 
 if img_file_buffer is not None:
     # To read image file buffer with OpenCV:
@@ -52,5 +46,3 @@ if img_file_buffer is not None:
       st.header('Arriba, con Probabilidad: '+str( prediction[0][1]))
     #if prediction[0][2]>0.5:
     # st.header('Derecha, con Probabilidad: '+str( prediction[0][2]))
-
-
