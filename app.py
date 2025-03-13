@@ -5,6 +5,10 @@ from keras.models import load_model
 
 st.title("Reconocimiento de Imágenes")
 
+image = Image.open("OIG5.jpg")
+st.image(image, caption="IA")
+
+
 # Subir imagen en vez de cargar una fija
 img_file_buffer = st.file_uploader("Sube una imagen", type=["jpg", "png"])
 if img_file_buffer is not None:
