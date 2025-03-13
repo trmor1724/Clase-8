@@ -1,9 +1,6 @@
-keras
 streamlit
 streamlit-webrtc
 numpy
 opencv-python-headless
 Pillow
-tensorflow==2.12
-installer returned a non-zero exit code
-
+tensorflow>=2.12
