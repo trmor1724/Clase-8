@@ -1,9 +1,8 @@
-keras
+
 streamlit
 streamlit-webrtc
 numpy
 opencv-python-headless
 Pillow
-tensorflow==2.8.0
-install h5py
-
+tensorflow==2.10 
+keras==2.10
