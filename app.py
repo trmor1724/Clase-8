@@ -7,17 +7,6 @@ from keras.models import load_model
 
 import platform
 
-import tensorflow as tf
-
-model_path = "keras_model.h5"
-
-try:
-    model = tf.keras.models.load_model(model_path)
-    model.summary()  # Muestra la estructura del modelo
-    print("✅ El modelo se cargó correctamente.")
-except Exception as e:
-    print(f"❌ Error al cargar el modelo: {e}")
-
 # Muestra la versión de Python junto con detalles adicionales
 st.write("Versión de Python:", platform.python_version())
 
