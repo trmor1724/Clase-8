@@ -4,4 +4,4 @@ streamlit-webrtc
 numpy
 opencv-python-headless
 Pillow
-tensorflow==2.10 
+tensorflow==2.10.0 
