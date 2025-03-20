@@ -6,7 +6,13 @@ from PIL import Image as Image, ImageOps as ImagOps
 from keras.models import load_model
 
 import platform
+import h5py
 
+try:
+    with h5py.File("keras_model.h5", "r") as f:
+        print("El archivo .h5 se puede abrir correctamente")
+except Exception as e:
+    print("Error al abrir el archivo .h5:", e)
 # Muestra la versión de Python junto con detalles adicionales
 st.write("Versión de Python:", platform.python_version())
 
